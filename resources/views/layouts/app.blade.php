@@ -23,4 +23,8 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
     </body>
+    
+    <footer>
+        <small>&copy;EveryTube 2019</small>
+    </footer>
 </html>

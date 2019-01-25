@@ -1,4 +1,49 @@
-.title {
-    padding-top :180px;
+.wrapper {
+    text-align:center;
 }
 
+.about {
+    margin-top:80px;
+}
+
+.enter {
+    margin-top:70px;
+}
+
+.signup {
+    margin-top:50px;
+}
+
+footer small {
+    display: block;
+    padding: 8px 0;
+    color:#00000;
+} 
+
+footer {
+    margin-top:200px;
+    background-color: #C0C0C0;
+    text-align:center;
+}
+
+.title {
+    padding-top:110px;
+}
+
+.register-title {
+    padding-top:80px;
+}
+
+.register-form {
+    padding-top:30px;
+}
+
+.login-title {
+    padding-top:80px;
+}
+
+.login-form {
+    padding-top:30px;
+    padding-bottom:100px;
+    
+}
