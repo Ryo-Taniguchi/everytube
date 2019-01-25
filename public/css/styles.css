@@ -1,3 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer small {
+    display: block;
+    padding: 8px 0;
+    color:#00000;
+} 
+
+footer {
+    margin-top: auto;
+    background-color: #C0C0C0;
+    text-align:center;
+}
+
 .wrapper {
     text-align:center;
 }
@@ -12,18 +30,6 @@
 
 .signup {
     margin-top:50px;
-}
-
-footer small {
-    display: block;
-    padding: 8px 0;
-    color:#00000;
-} 
-
-footer {
-    margin-top:200px;
-    background-color: #C0C0C0;
-    text-align:center;
 }
 
 .title {
@@ -44,6 +50,4 @@ footer {
 
 .login-form {
     padding-top:30px;
-    padding-bottom:100px;
-    
 }
