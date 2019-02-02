@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-sm-8 col-sm-offset-4">
                 
-                {!! Form::open(['route'=>'signup.post']) !!}
+                {!! Form::open(['route'=>'login.post']) !!}
                     <div class="form-group">
                         {!! Form::label('email','メールアドレス') !!}
                         {!! Form::email('email',old('email'), ['class'=>'form-control']) !!}

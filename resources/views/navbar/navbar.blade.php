@@ -12,8 +12,8 @@
             @if(Auth::check())
                 <li class="nav-item"><a href="#" class="nav-link">ホーム</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">シェア</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">マイページ</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">ログアウト</a></li>
+                <li class="nav-item">{!! link_to_route('users.show', 'マイページ', ['id'=>Auth::id()], ['class'=> 'nav-link']) !!}</li>
+                <li class="nav-item">{!! link_to_route('logout.get','ログアウト', [], ['class' => 'nav-link']) !!}</li>
             @else
                 <li class="nav-item">{!! link_to_route('signup.get','新規登録',[],['class' => 'nav-link']) !!}</li>
                 <li class="nav-item">{!! link_to_route('login', 'ログイン', [], ['class'=> 'nav-link']) !!}</li>
