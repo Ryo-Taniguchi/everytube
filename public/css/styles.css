@@ -1,3 +1,11 @@
+.nav-color {
+    color: #FFF0F5 !important;
+}
+
+.navbar-toggler{
+  border-color: #ffffff !important;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -60,31 +68,35 @@ footer {
     padding-top:50px;
 }
 
+.profile {
+    padding-top:60px;
+}
+
+.follow_button {
+    padding-top:20px;
+}
+
 .user-index {
     padding-left:80px;
     padding-top:70px;
 }
 
 .index {
-    padding-top:100px;
+    padding-top:80px;
 }
 
-.movie-content {
+.video-content {
     padding-top:50px;
 }
 
-.videos {
-    padding-top:30px;
-}
-
-.movie-wrap {
+.video-wrap {
      position: relative;
      padding-bottom: 56.25%; 
      height: 0;
      overflow: hidden;
 }
  
-.movie-wrap iframe {
+.video-wrap iframe {
      position: absolute;
      top: 0;
      left: 0;
@@ -94,9 +106,83 @@ footer {
 
 .delete-button {
     padding-top:10px;
+    padding-right:10px;
+    float:right;
 }
 
 .share-button {
     padding-top:80px;
     text-align:center;
+}
+
+.favorite-button {
+    padding-top:10px;
+    float:right;
+}
+
+.no_follow {
+    text-align:center
+}
+
+.videos {
+    padding-right:50px;
+    padding-top:30px;
+    padding-bottom:40px;
+}
+
+.pagination { 
+    justify-content: center; 
+    padding-top:100px;
+    padding-bottom:50px;
+}
+
+.nav-text {
+    color: #808080 !important;
+    font-size:30px;
+}
+
+.video-home {
+    padding-top:40px;
+}
+
+.nav-home{
+    padding-left:40px;
+}
+
+.show-nav {
+    color: #808080 !important;
+}
+
+.card-title {
+    color: #888888;
+}
+
+.search {
+    position:relative;
+    margin:10px 0 70px 40px;
+}
+
+.search-form {
+    position:absolute;	
+    height:40px;
+    width:250px;
+    border-radius:2px 0 0 2px;		
+    background:#f0fff0;	
+}
+
+.search-button {
+    width:55px;
+    height:40px;
+    position:absolute;
+    left:250px;
+    top:0;
+    border-radius:3px; 
+    background:#006400;
+    border:none;
+    color:#f8f8ff;
+    font-size:16px;
+}
+
+.search-button:hover{
+    background:#228b22;
 }

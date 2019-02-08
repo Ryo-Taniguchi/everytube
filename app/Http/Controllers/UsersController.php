@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\User;
-use App\Video;
 
 class UsersController extends Controller
 {
     public function show($id) {
         $user = User::find($id);
-        $videos = $user->videos()->orderBy('created_at', 'desc')->paginate(3);
+        $videos = $user->videos()->orderBy('created_at', 'desc')->paginate(5);
+        $followings = $user->followings;
         
         $data = [
             'user' => $user,
             'videos' => $videos,
+            'followings' => $followings,
             ];
             
         $data += $this->counts($user);
@@ -34,4 +35,21 @@ class UsersController extends Controller
         
         return redirect()->back()->with('user', $user);
     }
+    
+    public function favorites($id) {
+        $user = User::find($id);
+        $videos = $user->favorites()->orderBy('created_at','desc')->paginate(5);
+        $followings = $user->followings;
+        
+        $data = [
+            'user' => $user,
+            'videos' => $videos,
+            'followings' => $followings,
+            ];
+            
+        $data += $this->counts($user);
+        
+        return view('users.favorites', $data);
+    }
+    
 }

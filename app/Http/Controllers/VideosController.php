@@ -8,18 +8,12 @@ use App\Video;
 class VideosController extends Controller
 {
     public function index() {
-        $data = [];
         if (\Auth::check()) {
-            $user = \Auth::user();
-            $videos = $user->videos()->orderBy('created_at', 'desc')->paginate(2);
-            
-            $data = [
-                'user' => $user,
-                'videos' => $videos,
-            ];
+            $videos = Video::orderBy('created_at', 'desc')->paginate(10);
+            return view('home',['videos' => $videos]);
+        } else {
+            return view('welcome');
         }
-        
-        return view('welcome', $data);
     }
     
     public function create() {
@@ -34,7 +28,7 @@ class VideosController extends Controller
             'string'=>'required|max:30',
             'genre'=>'required'
             ]);
-        
+            
         $request->string = str_replace("https://youtu.be/","",$request->string);
         
         $request->user()->videos()->create([
@@ -45,7 +39,7 @@ class VideosController extends Controller
             ]);
        
         
-        return redirect()->back();
+        return redirect('videos');
     }
     
     public function destroy($id) {

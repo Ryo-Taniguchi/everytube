@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    @if (Auth::check())
-    @else
         <div class="wrapper">
             <h1 class="title">お気に入りの音楽をシェアしよう。</h1>
             
@@ -19,5 +17,4 @@
                 </div>
            </div>
         </div>
-    @endif
 @endsection
