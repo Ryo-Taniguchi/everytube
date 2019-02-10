@@ -69,7 +69,7 @@ footer {
 }
 
 .profile {
-    padding-top:60px;
+    padding-top:30px;
 }
 
 .follow_button {
@@ -159,7 +159,7 @@ footer {
 
 .search {
     position:relative;
-    margin:10px 0 70px 40px;
+    margin:10px 0 70px 20px;
 }
 
 .search-form {
@@ -185,4 +185,39 @@ footer {
 
 .search-button:hover{
     background:#228b22;
+}
+
+.select {
+    position:relative;
+    margin:0 0 0 80px;
+}
+
+.select-form {
+    position:absolute;	
+    height:25px;
+    width:140px;
+    border-radius:2px 0 0 2px;
+    background:#e6e6fa;
+    color:#696969;
+}
+
+.select-button {
+    width:55px;
+    height:25px;
+    position:absolute;
+    left:140px;
+    top:0;
+    border-radius:3px; 
+    background:#696969;	
+    border:none;
+    color:#ffffff;
+    font-size:10px;
+}
+
+.select-form:hover{
+    background:#b0c4de;
+}
+
+.select-button:hover{
+    background:#a9a9a9;
 }

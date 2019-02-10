@@ -20,4 +20,18 @@ class SearchController extends Controller
         
         return view('home')->with('videos', $videos);
     }
+    
+    public function select(Request $request) {
+        $genre = $request->input('genre');
+        
+        $query = Video::query();
+        
+        if(!empty($genre)) {
+            $query->where('genre', 'like', '%'.$genre.'%');
+        }
+        
+        $videos = $query->orderBy('created_at','desc')->paginate(5);
+        
+        return view('home')->with('videos', $videos);
+    }
 }
