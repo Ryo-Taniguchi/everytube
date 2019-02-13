@@ -18,7 +18,7 @@ class SearchController extends Controller
         
         $videos = $query->orderBy('created_at','desc')->paginate(5);
         
-        return view('home')->with('videos', $videos);
+        return view('home')->with('videos', $videos)->with('keyword', $keyword);
     }
     
     public function select(Request $request) {

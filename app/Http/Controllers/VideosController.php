@@ -10,7 +10,8 @@ class VideosController extends Controller
     public function index() {
         if (\Auth::check()) {
             $videos = Video::orderBy('created_at', 'desc')->paginate(10);
-            return view('home',['videos' => $videos]);
+            $keyword = "";
+            return view('home',['videos' => $videos, 'keyword' => $keyword]);
         } else {
             return view('welcome');
         }

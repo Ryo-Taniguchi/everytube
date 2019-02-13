@@ -14,7 +14,7 @@ class AddColumnFilename extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('filename', 150);
+            $table->string('filename', 150)->default('https://ryobuck.s3.ap-northeast-1.amazonaws.com/myprefix/w2tNI7F4Sb5b093cYHFY2AkzBoUUWomkeCbTumY2.png');
         });
     }
 

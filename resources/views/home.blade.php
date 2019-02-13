@@ -3,7 +3,7 @@
 @section('content')
 <form class="search" action="{{ url('/search/search')}}" method="POST">
     {{ csrf_field() }}
-    <input class="search-form" name="keyword" type="text" placeholder=" 曲名/アーティスト名" />
+    <input class="search-form" name="keyword" type="text" placeholder=" 曲名/アーティスト名" value="{{ $keyword }}"/>
     <input class="search-button" type="submit" value="検索" />
 </form>
 <div class="index">
