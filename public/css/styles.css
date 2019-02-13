@@ -77,8 +77,8 @@ footer {
 }
 
 .user-index {
-    padding-left:80px;
-    padding-top:70px;
+    padding-left:30px;
+    padding-top:100px;
 }
 
 .index {
@@ -197,7 +197,7 @@ footer {
     height:25px;
     width:140px;
     border-radius:2px 0 0 2px;
-    background:#e6e6fa;
+    background:#f0f8ff;
     color:#696969;
 }
 
@@ -220,4 +220,18 @@ footer {
 
 .select-button:hover{
     background:#a9a9a9;
+}
+
+.result {
+    padding-top:30px;
+    padding-left:50px;
+}
+
+.result-genre {
+    color:#808080;
+}
+
+.follow-list {
+    display:inline-block;
+    padding-right:10px;
 }

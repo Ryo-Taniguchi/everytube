@@ -32,6 +32,6 @@ class SearchController extends Controller
         
         $videos = $query->orderBy('created_at','desc')->paginate(5);
         
-        return view('home')->with('videos', $videos);
+        return view('select')->with('videos', $videos)->with('genre', $genre);
     }
 }
