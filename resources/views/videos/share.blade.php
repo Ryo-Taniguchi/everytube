@@ -4,12 +4,31 @@
     <div class="share-title text-center">
         <h2>音楽動画を登録する</h2>
     </div>
-    
     <div class="share-form">
         <div class="row justify-content-center">
+            @if (!isset( $v_id ))
+            <div class="col-sm-7 col-sm-offset-5">
+                <form class="search" action="{{ url('/videos/search')}}" method="POST">
+                {{ csrf_field() }}
+                <h6 class="ml-3">YouTubeから検索して登録する</h6>
+                <div class="input-group">
+                	<input type="search" name="q" class="form-control" placeholder="曲名/アーティスト名">
+                	<span class="input-group-btn">
+                		<input type="submit" value="検索" class="btn btn-info"></button>
+                	</span>
+                </div>
+                </form>
+            </div>
+            @endif
             <div class="col-sm-8 col-sm-offset-4">
-                
                 {!! Form::open(['route'=>'videos.store']) !!}
+                <div class="switch-title border-bottom ml-3">
+                    @if (isset( $v_id ))
+                    <h6>動画id以外を記入して登録してください。</h6>
+                    @else
+                    <h6>※見つからない場合やURLがわかっている場合、下記のフォームから登録する。</h6>
+                    @endif
+                </div>
                     <div class="form-group">
                         {!! Form::label('music_name','曲名') !!}
                         {!! Form::text('music_name',old('music_name'), ['class'=>'form-control']) !!}
@@ -20,10 +39,17 @@
                         {!! Form::text('artist',old('artist'), ['class'=>'form-control']) !!}
                     </div>
                     
+                    @if (isset( $v_id ))
+                    <div class="form-group">
+                        {!! Form::label('string','動画のid') !!}
+                        {!! Form::text('string',$v_id, ['class'=>'form-control']) !!}
+                    </div>
+                    @else
                     <div class="form-group">
                         {!! Form::label('string','URL (Youtubeの共有からURLを取得しペーストしてください)') !!}
                         {!! Form::text('string',old('string'), ['placeholder'=>'(例)　https://youtu.be/xxxxxxxx', 'class'=>'form-control']) !!}
                     </div>
+                    @endif
                     
                     <div class="form-group">
                         ジャンル

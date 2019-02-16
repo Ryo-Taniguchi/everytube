@@ -6,7 +6,7 @@
             <aside class="col-sm-4">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title text-center">{{ $user->name }}</h3>
+                        <h3 class="card-title show-title text-center">{{ $user->name }}</h3>
                     </div>
                     <div class="card-body">
                         <div class="text-center">

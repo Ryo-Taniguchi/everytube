@@ -9,7 +9,6 @@ class SearchController extends Controller
 {
     public function search(Request $request) {
         $keyword = $request->input('keyword');
-
         $query = Video::query();
         
         if(!empty($keyword)) {
@@ -23,7 +22,6 @@ class SearchController extends Controller
     
     public function select(Request $request) {
         $genre = $request->input('genre');
-        
         $query = Video::query();
         
         if(!empty($genre)) {

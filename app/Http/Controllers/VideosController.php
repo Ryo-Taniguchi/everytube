@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Video;
+use App\Http\Controllers;
+use Google_Client;
+use Google_Service_YouTube;
+use Google_Service_Exception;
+use Google_Exception;
 
 class VideosController extends Controller
 {
@@ -29,8 +34,12 @@ class VideosController extends Controller
             'string'=>'required|max:30',
             'genre'=>'required'
             ]);
-            
-        $request->string = str_replace("https://youtu.be/","",$request->string);
+         
+        $url = "!https://youtu.be/!";
+        
+        if ( preg_match($url, $request->string) ) {
+          $request->string = str_replace("https://youtu.be/","",$request->string);
+        } 
         
         $request->user()->videos()->create([
             'music_name' => $request->music_name,
@@ -52,4 +61,35 @@ class VideosController extends Controller
         
         return back();
     }
+    
+    public function search(Request $request) {
+        $client = new Google_Client();
+        $client->setDeveloperkey(config('everytube.api_key'));
+        $youtube = new Google_Service_YouTube($client);
+
+        $params['q']= $request->input('q');
+        $params['maxResults']= 12;
+
+        
+        try {
+            $searchResponse = $youtube->search->listSearch('snippet', $params);
+            $videos = $searchResponse['items'];
+            return view('videos.search')->with('q',$params['q'])->with('videos', $videos);
+        } catch (Google_Service_Exception $e) {
+            ($e->getMessage());
+            return back();
+        } catch (Google_Exception $e) {
+            ($e->getMessage());
+            return back();
+        }
+       
+    }
+    
+    public function result(Request $request) {
+         $v_id= $request->input('v_id');
+         
+         return view('videos.share')->with('v_id', $v_id);
+    }
+
+    
 }
