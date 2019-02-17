@@ -29,7 +29,7 @@
             </li>
         </ul>
         <div class="video-home">
-            <ul class="media-list videos">
+            <ul class="videos">
                 @foreach ($videos as $video)
                      @include('videos.videos', ['video' => $video])
                 @endforeach

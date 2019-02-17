@@ -6,7 +6,9 @@
     </div>
     <div class="share-form">
         <div class="row justify-content-center">
-            @if (!isset( $v_id ))
+            @if (Session::has('v_id'))
+                @include('videos.switch_share',[session('v_id')])
+            @else
             <div class="col-sm-7 col-sm-offset-5">
                 <form class="search" action="{{ url('/videos/search')}}" method="POST">
                 {{ csrf_field() }}
@@ -19,15 +21,10 @@
                 </div>
                 </form>
             </div>
-            @endif
             <div class="col-sm-8 col-sm-offset-4">
                 {!! Form::open(['route'=>'videos.store']) !!}
                 <div class="switch-title border-bottom ml-3">
-                    @if (isset( $v_id ))
-                    <h6>動画id以外を記入して登録してください。</h6>
-                    @else
                     <h6>※見つからない場合やURLがわかっている場合、下記のフォームから登録する。</h6>
-                    @endif
                 </div>
                     <div class="form-group">
                         {!! Form::label('music_name','曲名') !!}
@@ -39,18 +36,11 @@
                         {!! Form::text('artist',old('artist'), ['class'=>'form-control']) !!}
                     </div>
                     
-                    @if (isset( $v_id ))
-                    <div class="form-group">
-                        {!! Form::label('string','動画のid') !!}
-                        {!! Form::text('string',$v_id, ['class'=>'form-control']) !!}
-                    </div>
-                    @else
                     <div class="form-group">
                         {!! Form::label('string','URL (Youtubeの共有からURLを取得しペーストしてください)') !!}
                         {!! Form::text('string',old('string'), ['placeholder'=>'(例)　https://youtu.be/xxxxxxxx', 'class'=>'form-control']) !!}
                     </div>
-                    @endif
-                    
+
                     <div class="form-group">
                         ジャンル
                         {!! Form::select('genre', ['' => '選択してください']+['J-POP'=>'J-POP', 'アニメ'=>'アニメ', '洋楽'=>'洋楽', 'レゲエ'=>'レゲエ', 'ロック'=>'ロック', 'K-POP'=>'K-POP', 'ジャズ'=>'ジャズ','EDM'=>'EDM']) !!}
@@ -61,6 +51,7 @@
                     </div>
                 {!! Form::close() !!}
             </div>
+            @endif
         </div>
     </div>
 @endsection

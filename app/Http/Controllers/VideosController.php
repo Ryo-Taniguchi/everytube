@@ -64,11 +64,11 @@ class VideosController extends Controller
     
     public function search(Request $request) {
         $client = new Google_Client();
-        $client->setDeveloperkey(config('everytube.api_key'));
+        $client->setDeveloperkey(env('API_KEY'));
         $youtube = new Google_Service_YouTube($client);
 
         $params['q']= $request->input('q');
-        $params['maxResults']= 12;
+        $params['maxResults']= 1;
 
         
         try {
@@ -88,7 +88,7 @@ class VideosController extends Controller
     public function result(Request $request) {
          $v_id= $request->input('v_id');
          
-         return view('videos.share')->with('v_id', $v_id);
+         return redirect('videos/create')->with('v_id', $v_id);
     }
 
     

@@ -5,7 +5,7 @@
       @foreach ($followings as $following)
       <div class="follow-list text-center">
           <h6>{{ $following->name }}</h6>
-          <a href="{{ route('users.show',['id'=>$following->id]) }}"><img class="mb-3 rounded" src="{{ $following->filename }}" width="50" height="40"></a>
+          <a href="{{ route('users.show',['id'=>$following->id]) }}"><img class="mb-3 rounded" src="{{ $following->filename }}" width="45" height="48"></a>
       </div>
       @endforeach
       @else

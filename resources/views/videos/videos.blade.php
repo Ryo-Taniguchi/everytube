@@ -1,5 +1,5 @@
 <li class="media mb-3">
-    <img class="media-object rounded" src="{{ $video->user->filename }}" width="50" height="50">
+    <img class="media-object rounded" src="{{ $video->user->filename }}" width="45" height="48">
     <div class="media-body ml-3">
         <div>
             {!! link_to_route('users.show',$video->user->name,['id' => $video->user->id]) !!}
