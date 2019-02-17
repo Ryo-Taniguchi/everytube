@@ -61,7 +61,7 @@ class VideosController extends Controller
         
         return back();
     }
-    q
+    
     public function search(Request $request) {
         $client = new Google_Client();
         $client->setDeveloperkey(config('everytube.api_key'));
