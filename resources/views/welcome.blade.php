@@ -10,7 +10,7 @@
            <div class="enter">
                <div class="login">
                    <section>既にアカウントをお持ちの方</section>
-                   {!! link_to_route('login', 'ログイン', [], [ 'class' => 'col-4 btn btn-lg btn-primary']) !!}
+                   {!! link_to_route('login', 'ログイン', [], [ 'class' => 'col-3 btn btn-primary']) !!}
                 </div>
                 <div class="signup">
                     {!! link_to_route('signup.get', '初めてログインされる方はこちら', [], [ 'class' => 'btn btn-lg btn-success']) !!}
