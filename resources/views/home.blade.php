@@ -1,17 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+@if(empty (Session::has('genre') ))
 <form class="search" action="{{ url('/search/search')}}" method="POST">
     {{ csrf_field() }}
     <input class="search-form" name="keyword" type="text" placeholder=" 曲名/アーティスト名" value="{{ $keyword }}"/>
     <input class="search-button" type="submit" value="検索" />
 </form>
+@endif
 <div class="index">
     <div class="col-sm-8">
         <ul class="nav nav-tabs mb-3 nav-home">
             <li class="nav-item nav-text">ミュージック一覧</li>
             <li class="nav-item">
-                <form class="select" action="{{ url('/search/select')}}" method="POST">
+                <form class="select" action="{{ url('/search/search')}}" method="POST">
                 {{ csrf_field() }}
                 <select class="select-form" name="genre">
                   <option selected="selected" value="">ジャンルを選択</option>
@@ -28,6 +30,12 @@
                 </form>
             </li>
         </ul>
+        @if( !empty( Session::has('genre') ))
+            <div class="result">
+                <h6 class="result-genre">ジャンル：{{ session('genre') }}で絞り込み中</h6>
+                <a class="ml-2" href="{{ url('videos') }}"><i class="fas fa-backspace fa-lg back"></i></a>:戻る
+             </div>
+        @endif
         <div class="video-home">
             <ul class="videos">
                 @foreach ($videos as $video)

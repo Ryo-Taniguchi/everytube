@@ -271,3 +271,11 @@ footer {
     margin-bottom:30px;
 }
 
+.back {
+    color:#ffb6c1;
+}
+
+.back:hover {
+    color:red;
+}
+

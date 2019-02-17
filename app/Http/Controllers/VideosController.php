@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller,
+Session;
 use App\Video;
 use App\Http\Controllers;
 use Google_Client;
@@ -14,9 +16,15 @@ class VideosController extends Controller
 {
     public function index() {
         if (\Auth::check()) {
-            $videos = Video::orderBy('created_at', 'desc')->paginate(10);
-            $keyword = "";
-            return view('home',['videos' => $videos, 'keyword' => $keyword]);
+            if (Session::has('videos')){
+                $videos = session('videos');
+                $keyword = (session('keyword') === "" ) ? "" : session('keyword');
+                return view('home',['videos' => $videos, 'keyword' => $keyword]);
+            } else{
+                $videos = Video::orderBy('created_at', 'desc')->paginate(10);
+                $keyword = "";
+                return view('home',['videos' => $videos, 'keyword' => $keyword]);
+            }
         } else {
             return view('welcome');
         }
