@@ -64,11 +64,11 @@ class VideosController extends Controller
     
     public function search(Request $request) {
         $client = new Google_Client();
-        $client->setDeveloperkey(env('API_KEY'));
+        $client->setDeveloperkey('API_KEY');
         $youtube = new Google_Service_YouTube($client);
 
         $params['q']= $request->input('q');
-        $params['maxResults']= 1;
+        $params['maxResults']= 15;
 
         
         try {
