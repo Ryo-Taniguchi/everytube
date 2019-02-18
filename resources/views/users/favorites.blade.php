@@ -39,14 +39,12 @@
                     <li class="nav-item"><a href="{{ route('users.show',['id'=>$user->id])}}" class="nav-link {{ Request::is('users/' .$user->id) ? 'active' : ''}}">動画一覧 <span class="badge badge-secondary">{{ $count_videos }}</span></a></li>
                     <li class="nav-item"><a href="{{ route('users.favorites',['id'=>$user->id])}}" class="nav-link {{ Request::is('users/*/favorites') ? 'active' : ''}}">お気に入り一覧 <span class="badge badge-secondary">{{ $count_favorites }}</span></a></li>
                 </ul>
-                <div class="video-content">
-                    <ul class="videos">
-                        @foreach ($videos as $video)
-                            @if( $user->is_favorites($video->id) )
-                                @include('videos.videos', ['video' => $video])
-                            @endif
-                        @endforeach
-                    </ul>
+                <div class="video-favorite">
+                    @foreach ($videos as $video)
+                    <ul class="videos alert alert-secondary" role="alert">
+                         @include('videos.videos', ['video' => $video])
+                     </ul>
+                    @endforeach
                 </div>
             </div>
         </div>

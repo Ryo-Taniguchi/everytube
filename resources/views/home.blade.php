@@ -33,15 +33,15 @@
         @if( !empty( Session::has('genre') ))
             <div class="result">
                 <h6 class="result-genre">ジャンル：{{ session('genre') }}で絞り込み中</h6>
-                <a class="ml-2" href="{{ url('videos') }}"><i class="fas fa-backspace fa-lg back"></i></a>:戻る
+                <a class="ml-2" href="{{ url('videos') }}"><i class="fas fa-backspace fa-lg back-icon"></i></a>:戻る
              </div>
         @endif
         <div class="video-home">
-            <ul class="videos">
-                @foreach ($videos as $video)
-                     @include('videos.videos', ['video' => $video])
-                @endforeach
-            </ul>
+            @foreach ($videos as $video)
+            <ul class="videos alert alert-secondary" role="alert">
+                 @include('videos.videos', ['video' => $video])
+             </ul>
+            @endforeach
         </div>
         {{ $videos->render('pagination::bootstrap-4') }}
     </div>

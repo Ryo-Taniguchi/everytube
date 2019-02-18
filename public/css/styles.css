@@ -78,6 +78,15 @@ footer {
     margin-bottom: 100px
 }
 
+.youtube {
+    color: #ff0000;
+}
+
+.no-search {
+    padding-left: 8px;
+    color: #ff0000;
+}
+
 .profile {
     padding-top: 30px;
 }
@@ -93,14 +102,19 @@ footer {
 
 .index {
     padding-top: 80px;
+    margin-bottom: 100px;
 }
 
 .video-content {
     padding-top: 50px;
 }
 
+.video-favorite {
+    padding-top: 100px;
+}
+
 .video-user {
-    color: #87cefa;
+    color: #4169e1;
 }
 
 .video-title {
@@ -139,7 +153,8 @@ footer {
 }
 
 .btn-outline-default {
-    border: 1px solid #8b008b;
+    border: 1px solid #4b0082;
+    background: #ffffff;
     color: #8b008b;
 }
 
@@ -150,12 +165,17 @@ footer {
 
 .btn-outline-warning {
     border: 1px solid #ff8c00;
+    background: #ffffff;
     color: #ff8c00;
 }
 
 .btn-outline-warning:hover {
     background: #ff8c00;
     color: #ffffff;
+}
+
+.btn-outline-danger {
+    background: #ffffff;
 }
 
 .btn-success {
@@ -185,9 +205,13 @@ footer {
 }
 
 .videos {
-    padding-right: 50px;
+    padding-left: 26px;
     padding-top: 30px;
-    padding-bottom: 40px;
+    padding-bottom: 5px;
+}
+
+.alert-secondary {
+    background: #f5f5f5;
 }
 
 .pagination { 
@@ -330,15 +354,16 @@ footer {
 }
 
 .switch-title {
-    padding-top: 60px;
+    padding-top: 40px;
     margin-bottom: 30px;
 }
 
-.back {
+.back-icon {
     color: #ffb6c1;
 }
 
-.back:hover {
+.back-icon:hover {
     color: red;
 }
+
 

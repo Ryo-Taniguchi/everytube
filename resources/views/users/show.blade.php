@@ -19,11 +19,11 @@
                 {!! link_to_route('videos.create','動画を追加する',[],['class' => 'btn btn-success']) !!}
             </div>
             <div class="video-content">
-                <ul class="videos">
-                    @foreach ($videos as $video)
-                        @include('videos.videos', ['video' => $video])
-                    @endforeach
+                @foreach ($videos as $video)
+                <ul class="videos alert alert-secondary" role="alert">
+                    @include('videos.videos', ['video' => $video])
                 </ul>
+                @endforeach
             </div>
         </div>
     </div>

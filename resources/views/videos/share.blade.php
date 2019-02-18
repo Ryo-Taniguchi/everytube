@@ -12,7 +12,7 @@
             <div class="col-sm-7 col-sm-offset-5">
                 <form class="search" action="{{ url('/videos/search')}}" method="POST">
                 {{ csrf_field() }}
-                <h6 class="ml-3">YouTubeから検索して登録する</h6>
+                <h6 class="ml-3"><i class="fab fa-youtube fa-lg youtube"></i>YouTubeの検索から見つける</h6>
                 <div class="input-group">
                 	<input type="search" name="q" class="form-control" placeholder="曲名/アーティスト名">
                 	<span class="input-group-btn">
@@ -23,8 +23,8 @@
             </div>
             <div class="col-sm-8 col-sm-offset-4">
                 {!! Form::open(['route'=>'videos.store']) !!}
-                <div class="switch-title border-bottom ml-3">
-                    <h6>※見つからない場合やURLがわかっている場合、下記のフォームから登録する。</h6>
+                <div class="switch-title">
+                    <div class="alert alert-warning" role="alert">&nbsp;※見つからない場合やURLがわかっている場合、下記のフォームから登録する</div>
                 </div>
                     <div class="form-group">
                         {!! Form::label('music_name','曲名') !!}
