@@ -2,9 +2,9 @@
     <img class="media-object rounded" src="{{ $video->user->filename }}" width="45" height="47">
     <div class="media-body ml-3">
         <div>
-            {!! link_to_route('users.show',$video->user->name,['id' => $video->user->id]) !!}
+            {!! link_to_route('users.show',$video->user->name,['id' => $video->user->id], ['class' => 'video-user']) !!}
         </div>
-        <div>
+        <div class="video-title">
             {{ $video->music_name }} / {{ $video->artist }} / ジャンル：{{ $video->genre }}
         </div>
         <div class="video-wrap">

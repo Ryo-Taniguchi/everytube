@@ -4,6 +4,6 @@
         {!! Form::close() !!}
     @else
         {!! Form::open(['route'=>['favorites.favorite',$video->id ]]) !!}
-            {!! Form::submit('お気に入り登録',['class'=>"btn btn-outline-primary"]) !!}
+            {!! Form::submit('お気に入り登録',['class'=>"btn btn-outline-default"]) !!}
         {!! Form::close() !!}
     @endif

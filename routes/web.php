@@ -26,7 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('videos/search','VideosController@search'); 
     Route::post('videos/result','VideosController@result');
     Route::post('users/{id}/upload','UsersController@upload')->name('user.upload');
-    Route::post('search/search', 'SearchController@search');
+    Route::post('search', 'SearchController@search');
 });
 
 Route::group(['prefix' => 'users/{id}'], function () {

@@ -2,7 +2,7 @@
 
 @section('content')
 @if(empty (Session::has('genre') ))
-<form class="search" action="{{ url('/search/search')}}" method="POST">
+<form class="search" action="{{ url('search')}}" method="POST">
     {{ csrf_field() }}
     <input class="search-form" name="keyword" type="text" placeholder=" 曲名/アーティスト名" value="{{ $keyword }}"/>
     <input class="search-button" type="submit" value="検索" />
@@ -13,7 +13,7 @@
         <ul class="nav nav-tabs mb-3 nav-home">
             <li class="nav-item nav-text">ミュージック一覧</li>
             <li class="nav-item">
-                <form class="select" action="{{ url('/search/search')}}" method="POST">
+                <form class="select" action="{{ url('/search')}}" method="POST">
                 {{ csrf_field() }}
                 <select class="select-form" name="genre">
                   <option selected="selected" value="">ジャンルを選択</option>

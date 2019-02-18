@@ -25,7 +25,7 @@
                     </div>
                 {!! Form::close() !!}
                 
-                <p class="mt-2 text-center">アカウントお持ちでない方は新規登録  <a href="{{ route('signup.get', []) }}"><i class="far fa-check-square fa-lg"></a></i>
+                <p class="mt-2 text-center">アカウントお持ちでない方は新規登録  <a href="{{ route('signup.get', []) }}"><i class="far fa-check-square fa-lg check"></a></i>
             </div>
         </div>
     </div>

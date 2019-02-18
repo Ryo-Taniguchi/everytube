@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller,
-Session;
-use App\Video;
 use App\Http\Controllers;
+use App\Http\Controllers\Controller,Session;
+use App\Video;
 use Google_Client;
 use Google_Service_YouTube;
 use Google_Service_Exception;
@@ -15,19 +14,22 @@ use Google_Exception;
 class VideosController extends Controller
 {
     public function index() {
+        
         if (\Auth::check()) {
-            if (Session::has('videos')){
+            if (Session::has('videos')) {
                 $videos = session('videos');
                 $keyword = (session('keyword') === "" ) ? "" : session('keyword');
                 return view('home',['videos' => $videos, 'keyword' => $keyword]);
-            } else{
+            } else {
                 $videos = Video::orderBy('created_at', 'desc')->paginate(10);
                 $keyword = "";
                 return view('home',['videos' => $videos, 'keyword' => $keyword]);
             }
         } else {
+            
             return view('welcome');
         }
+        
     }
     
     public function create() {
@@ -56,7 +58,6 @@ class VideosController extends Controller
             'string' => $request->string,
             ]);
        
-        
         return redirect('videos');
     }
     
@@ -78,7 +79,6 @@ class VideosController extends Controller
         $params['q']= $request->input('q');
         $params['maxResults']= 15;
 
-        
         try {
             $searchResponse = $youtube->search->listSearch('snippet', $params);
             $videos = $searchResponse['items'];
@@ -99,5 +99,4 @@ class VideosController extends Controller
          return redirect('videos/create')->with('v_id', $v_id);
     }
 
-    
 }
