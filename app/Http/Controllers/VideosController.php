@@ -95,8 +95,8 @@ class VideosController extends Controller
     
     public function result(Request $request) {
          $v_id= $request->input('v_id');
-         
-         return redirect('videos/create')->with('v_id', $v_id);
+         $v_title= $request->input('v_title');
+         return redirect('videos/create')->with('v_id', $v_id)->with('v_title', $v_title);
     }
 
 }

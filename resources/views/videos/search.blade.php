@@ -16,8 +16,10 @@
         <h4 class="card-title snippet-title">{{ $video['snippet']['title'] }}</h4></a>
          <p class="card-text snippet-description">{{ $video['snippet']['description'] }}</p>
             <form method="post" action="{{ url('/videos/result')}}" >
-            {{ csrf_field() }}       
-                <button name="v_id" class="btn btn-info result-button" type="submit" value="{{ $video['id']['videoId'] }}">登録する</button>
+            {{ csrf_field() }}
+                <input type="hidden" name="v_title" value="{{ $video['snippet']['title'] }}" />
+                <input type="hidden" name="v_id" value="{{ $video['id']['videoId'] }}" />
+                <button class="btn btn-info result-button" type="submit" >登録する</button>
             </form>
         </div>
       </div>

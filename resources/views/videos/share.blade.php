@@ -7,7 +7,7 @@
     <div class="share-form">
         <div class="row justify-content-center">
             @if (Session::has('v_id'))
-                @include('videos.switch_share',[session('v_id')])
+                @include('videos.switch_share',[session('v_id'),session('v_title')])
             @else
             <div class="col-sm-7 col-sm-offset-5">
                 <form class="search" action="{{ url('/videos/search')}}" method="POST">

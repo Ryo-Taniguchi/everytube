@@ -25,6 +25,7 @@
                   <option value="K-POP">K-POP</option>
                   <option value="ジャズ">ジャズ</option>
                   <option value="EDM">EDM</option>
+                  <option value="その他">その他</option>
                 </select>
                 <input class="select-button" type="submit" value="絞り込み" />
                 </form>
