@@ -6,7 +6,7 @@
         {!! Form::hidden('string', session('v_id'))!!}
         <div class="form-group">
             {!! Form::label('music_name','曲名') !!}
-            {!! Form::text('music_name',session('v_title'), ['class'=>'form-control']) !!}
+            {!! Form::text('music_name', session('v_title'), ['class'=>'form-control']) !!}
         </div>
         
         <div class="form-group">
