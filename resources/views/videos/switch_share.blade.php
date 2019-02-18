@@ -1,7 +1,7 @@
 <div class="col-sm-8 col-sm-offset-4">
     {!! Form::open(['route'=>'videos.store']) !!}
-    <div class="switch-title border-bottom ml-3">
-        <h6>動画id以外を記入して登録してください。</h6>
+    <div class="switch-title border-bottom">
+        <h6 class="switch-text ml-3"><i class="fas fa-check"></i>動画id以外を記入して登録してください。</h6>
     </div>
         <div class="form-group">
             {!! Form::label('music_name','曲名') !!}

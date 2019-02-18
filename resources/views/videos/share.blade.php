@@ -24,7 +24,7 @@
             <div class="col-sm-8 col-sm-offset-4">
                 {!! Form::open(['route'=>'videos.store']) !!}
                 <div class="switch-title">
-                    <div class="alert alert-warning" role="alert">&nbsp;※見つからない場合やURLがわかっている場合、下記のフォームから登録する</div>
+                    <div class="alert alert-warning" role="alert">&nbsp;※見つからない場合やURLがわかっている場合、下記のフォームから登録してください。</div>
                 </div>
                     <div class="form-group">
                         {!! Form::label('music_name','曲名') !!}

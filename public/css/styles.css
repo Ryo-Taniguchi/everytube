@@ -41,7 +41,7 @@ footer {
 }
 
 .check {
-    color: #00ffff;
+    color: #008b8b;
 }
 
 .check:hover {
@@ -176,6 +176,19 @@ footer {
 
 .btn-outline-danger {
     background: #ffffff;
+    border: 1px solid #d9534f;
+}
+
+.btn-outline-success {
+    border: 2px solid #ff69b4;
+    background: #ffffff;
+    color:#ff69b4;
+}
+
+.btn-outline-success:hover {
+    border: 2px solid #ff69b4;
+    background: #ff69b4;
+    color: #ffffff;
 }
 
 .btn-success {
@@ -280,7 +293,7 @@ footer {
 .select-form {
     position: absolute;	
     height: 25px;
-    width: 140px;
+    width: 150px;
     border-radius: 2px 0 0 2px;
     background: #f0f8ff;
     color: #696969;
@@ -290,7 +303,7 @@ footer {
     width: 55px;
     height: 25px;
     position: absolute;
-    left: 140px;
+    left: 150px;
     top: 0;
     border-radius: 3px; 
     background: #696969;	
@@ -347,6 +360,7 @@ footer {
 .snippet-description {
     color: #dcdcdc;
 }
+
 .result-button {
     float: right;
     margin-bottom: 15px;
@@ -354,8 +368,12 @@ footer {
 }
 
 .switch-title {
-    padding-top: 40px;
+    padding-top: 30px;
     margin-bottom: 30px;
+}
+
+.switch-text {
+    color: #a9a9a9;
 }
 
 .back-icon {

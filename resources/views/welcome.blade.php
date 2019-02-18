@@ -5,7 +5,7 @@
             <h1 class="title">お気に入りの音楽をシェアしよう。</h1>
             
            <div class="about">
-               <p>YouTubeのMusic PVを</br></br>自分用に保存したり共有できるサイトです。</p>
+               <p><i class="fab fa-youtube fa-lg youtube"></i>YouTubeのMusic PVを</br></br>自分用に保存したり共有できるサイトです。</p>
            </div>
            <div class="enter">
                <div class="login">
