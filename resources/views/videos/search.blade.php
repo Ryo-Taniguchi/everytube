@@ -11,7 +11,7 @@
 @foreach ($videos as $video)
   <div class="card text-white bg-secondary mb-3">
     <a href="https://www.youtube.com/watch?v={{ $video['id']['videoId'] }}" >
-    <img class="card-img-top" src="{{ $video['snippet']['thumbnails']['default']['url'] }}" />
+    <img class="card-img-top" src="{{ $video['snippet']['thumbnails']['high']['url'] }}" />
     <div class="card-body">
       <h4 class="card-title snippet-title">{{ $video['snippet']['title'] }}</h4>
       </a>
