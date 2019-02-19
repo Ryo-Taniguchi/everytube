@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers;
+use App\Http\Requests\StoreVideo;
 use App\Http\Controllers\Controller,Session;
 use App\Video;
 use Google_Client;
@@ -37,16 +38,8 @@ class VideosController extends Controller
         return view('videos.share');
     }
     
-    public function store(Request $request) {
-        $this->validate($request,[
-            'music_name'=>'required|max:40',
-            'artist'=>'required|max:40',
-            'string'=>'required|max:30',
-            'genre'=>'required'
-            ]);
-         
+    public function store(StoreVideo $request) {
         $url = "!https://youtu.be/!";
-        
         if ( preg_match($url, $request->string) ) {
           $request->string = str_replace("https://youtu.be/","",$request->string);
         } 
@@ -94,9 +87,9 @@ class VideosController extends Controller
     }
     
     public function result(Request $request) {
-         $v_id= $request->input('v_id');
-         $v_title= $request->input('v_title');
-         return redirect('videos/create')->with('v_id', $v_id)->with('v_title', $v_title);
+        $v_id= $request->input('v_id');
+        $v_title= $request->input('v_title');
+        return redirect('videos/create')->with('v_id', $v_id)->with('v_title', $v_title);
     }
 
 }
