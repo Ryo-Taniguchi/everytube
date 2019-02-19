@@ -273,9 +273,8 @@ footer {
     position: absolute;
     left: 250px;
     top: 0;
-    border-radius: 3px; 
+    border-radius: 5px; 
     background: #4169e1;
-    border: none;
     color: #f8f8ff;
     font-size: 16px;
     text-align: center;
@@ -294,7 +293,7 @@ footer {
     position: absolute;	
     height: 25px;
     width: 150px;
-    border-radius: 2px 0 0 2px;
+    border-radius: 3px;
     background: #f0f8ff;
     color: #696969;
 }
@@ -305,9 +304,8 @@ footer {
     position: absolute;
     left: 150px;
     top: 0;
-    border-radius: 3px; 
+    border-radius: 5px; 
     background: #1e90ff;	
-    border: none;
     color: #ffffff;
     font-size: 10px;
 }
