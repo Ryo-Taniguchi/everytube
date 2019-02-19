@@ -273,10 +273,9 @@ footer {
     position: absolute;
     left: 250px;
     top: 0;
-    border-radius: 5px; 
+    border-radius: 4px; 
     background: #4169e1;
     color: #f8f8ff;
-    font-size: 16px;
     text-align: center;
 }
 

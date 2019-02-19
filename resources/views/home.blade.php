@@ -5,7 +5,7 @@
     <form class="search" action="{{ url('search')}}" method="POST">
         {{ csrf_field() }}
         <input class="search-form" name="keyword" type="text" placeholder=" 曲名/アーティスト名" value="{{ $keyword }}"/>
-        <input class="search-button" type="submit" value="検索" />
+        <button class="search-button" type="submit" ><i class="fas fa-search fa-lg"></i></button>
     </form>
     @endif
     <div class="index">
