@@ -28,8 +28,13 @@ class UsersController extends Controller
         $this->validate($request, ['file' => 'required|image']);
         
         $user = User::find($id);
+        // アップロード画像を取得する
         $image = $request->file('file');
+        /* ファイル名が自動生成され、S3へ保存
+        *  外部からアクセスするため第三引数に'public'を設定
+        */
         $path = Storage::disk('s3')->putFile('myprefix', $image, 'public');
+        // ファイルパスからをURLを参照する
         $user->filename = Storage::disk('s3')->url($path);
         $user->save();
         

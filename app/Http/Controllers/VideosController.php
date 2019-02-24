@@ -18,15 +18,18 @@ class VideosController extends Controller
     public function index() {
         
         if (\Auth::check()) {
+            // ビデオ情報がセッションデータとして存在するかチェック
             if (Session::has('videos')) {
                 $videos = session('videos');
-                $keyword = (session('keyword') === "" ) ? "" : session('keyword');
-                return view('home',['videos' => $videos, 'keyword' => $keyword]);
+                // キーワードが存在しない時は空にする
+                $keyword = (session('keyword')) ? session('keyword') : "";
             } else {
                 $videos = Video::orderBy('created_at', 'desc')->paginate(10);
                 $keyword = "";
-                return view('home',['videos' => $videos, 'keyword' => $keyword]);
             }
+            
+            return view('home',['videos' => $videos, 'keyword' => $keyword]);
+            
         } else {
             
             return view('welcome');
@@ -39,7 +42,12 @@ class VideosController extends Controller
         return view('videos.share');
     }
     
+    // StoreVideo作成
+    // FormRequestをオーバーライドし バリデーションをカスタマイズ
+    // ※引数注目※
     public function store(StoreVideo $request) {
+        
+        // YouTubeのURLの時、ビデオIDだけを取得する
         $url = "!https://youtu.be/!";
         if ( preg_match($url, $request->string) ) {
           $request->string = str_replace("https://youtu.be/","",$request->string);
@@ -66,13 +74,16 @@ class VideosController extends Controller
     }
     
     public function search(Request $request) {
+        // Googleクライアントを読みこみ、APIの情報を設定する
         $client = new Google_Client();
         $client->setDeveloperkey(config('everytube.api_key'));
+        // YouTubeの読み込み
         $youtube = new Google_Service_YouTube($client);
-
+        // 検索ワード取得、検索数指定
         $params['q']= $request->input('q');
         $params['maxResults']= 15;
-
+        
+        // 検索情報と動画情報が一致する結果を取得するためにsearch.listメソッドを呼びだす
         try {
             $searchResponse = $youtube->search->listSearch('snippet', $params);
             $videos = $searchResponse['items'];
@@ -90,6 +101,7 @@ class VideosController extends Controller
     public function result(Request $request) {
         $v_id= $request->input('v_id');
         $v_title= $request->input('v_title');
+        // セッションデータを格納しつつリダイレクト
         return redirect('videos/create')->with('v_id', $v_id)->with('v_title', $v_title);
     }
 

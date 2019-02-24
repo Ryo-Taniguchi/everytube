@@ -40,11 +40,13 @@ class User extends Authenticatable
     }
     
     public function favorite($videoId) {
+        // お気に入り中か確認
         $exist = $this->is_favorites($videoId);
         
         if ($exist) {
             return false;
         } else {
+            //お気に入り
             $this->favorites()->attach($videoId);
             return true;
         }
@@ -54,6 +56,7 @@ class User extends Authenticatable
         $exist = $this->is_favorites($videoId);
         
         if ($exist) {
+            //お気に入り解除
             $this->favorites()->detach($videoId);
             return true;
         } else {
@@ -66,13 +69,15 @@ class User extends Authenticatable
     }
     
     public function follow($userId) {
+        // フォロー中か確認
         $exist = $this->is_following($userId);
-        
+        // 自分以外か確認
         $its_me = $this->id == $userId;
         
         if ($exist || $its_me) {
             return false;
         } else {
+            // フォロー
             $this->followings()->attach($userId);
             return true;
         }
@@ -80,10 +85,10 @@ class User extends Authenticatable
     
     public function unfollow($userId) {
         $exist = $this->is_following($userId);
-        
         $its_me = $this->id == $userId;
         
         if ($exist && !$its_me) {
+             //フォロー解除
             $this->followings()->detach($userId);
             return true;
         } else {
