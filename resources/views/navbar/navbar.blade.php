@@ -19,8 +19,8 @@
                 <li class="nav-item">{!! link_to_route('videos.create','シェア', [], ['class' => 'nav-link nav-color']) !!}</li>
                 <li class="nav-item">{!! link_to_route('logout.get','ログアウト', [], ['class' => 'nav-link nav-color']) !!}</li>
             @else
-                <li class="nav-item">{!! link_to_route('signup.get','新規登録',[],['class' => 'nav-link nav-color']) !!}</li>
                 <li class="nav-item">{!! link_to_route('login', 'ログイン', [], ['class'=> 'nav-link nav-color']) !!}</li>
+                <li class="nav-item">{!! link_to_route('signup.get','新規登録',[],['class' => 'nav-link nav-color']) !!}</li>
             @endif
             </ul>
         </div>
