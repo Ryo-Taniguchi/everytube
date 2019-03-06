@@ -3,9 +3,9 @@
 EveryTubeはお気に入りの音楽動画を自分用に保存したり、共有できるオリジナルアプリです。  
 ipadやiphoneにもサイズ適用します。  
 
-下記でログインできます（ゲスト用）
-email:sample@sample.com
-password:00000000
+下記でログインできます（ゲスト用）  
+email:sample@sample.com  
+password:00000000  
 
 URL: https://everytube.herokuapp.com
 
