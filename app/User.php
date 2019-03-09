@@ -39,24 +39,26 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'user_follow', 'user_id', 'follow_id')->withTimestamps();
     }
     
+    //お気に入りしているか
+    public function is_favorites($videoId) {
+        return $this->favorites()->where('video_id',$videoId)->exists();
+    }
+    
     public function favorite($videoId) {
-        // お気に入り中か確認
+        // お気に入り中でなければお気に入りする
         $exist = $this->is_favorites($videoId);
-        
         if ($exist) {
             return false;
         } else {
-            //お気に入り
             $this->favorites()->attach($videoId);
             return true;
         }
     }
     
     public function unfavorite($videoId) {
+         // お気に入り中であればお気に入り解除する
         $exist = $this->is_favorites($videoId);
-        
         if ($exist) {
-            //お気に入り解除
             $this->favorites()->detach($videoId);
             return true;
         } else {
@@ -64,31 +66,28 @@ class User extends Authenticatable
         }
     }
     
-    public function is_favorites($videoId) {
-        return $this->favorites()->where('video_id',$videoId)->exists();
+    //フォローしているか
+    public function is_following($userId) {
+        return $this->followings()->where('follow_id', $userId)->exists();
     }
     
     public function follow($userId) {
-        // フォロー中か確認
+        //ユーザーが自分ではない、またはフォロー中でなければフォローする
         $exist = $this->is_following($userId);
-        // 自分以外か確認
         $its_me = $this->id == $userId;
-        
         if ($exist || $its_me) {
             return false;
         } else {
-            // フォロー
             $this->followings()->attach($userId);
             return true;
         }
     }
     
     public function unfollow($userId) {
+         //ユーザーが自分ではなく、フォロー中であればフォロー解除する
         $exist = $this->is_following($userId);
         $its_me = $this->id == $userId;
-        
         if ($exist && !$its_me) {
-             //フォロー解除
             $this->followings()->detach($userId);
             return true;
         } else {
@@ -96,7 +95,4 @@ class User extends Authenticatable
         }
     }
     
-    public function is_following($userId) {
-        return $this->followings()->where('follow_id', $userId)->exists();
-    }
 }
